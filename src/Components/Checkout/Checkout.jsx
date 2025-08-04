@@ -2,8 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { TextField, Button, Box, Typography, Paper } from '@mui/material';
 import { GetReq, PostReq } from '../../api/axios';
+import { useSnackbar } from 'notistack';
+
+
+
 
 const Checkout = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const cartItems = useSelector((state) => state.cart.items);
 
   console.log(cartItems)
@@ -21,6 +26,7 @@ const Checkout = () => {
 };
 
   const [form, setForm] = React.useState({
+    name: "",  
     email: "",
     phone: "",
     address: ""
@@ -79,14 +85,16 @@ const Checkout = () => {
 
   try {
     const res = await PostReq("/Orders/add", orderData);
+    console.log("🚀 Sending Order Data:", orderData);
+
     if (res.status === 200) {
-      alert("Order Placed Successfully!");
+      enqueueSnackbar("Order Placed Successfully", { variant: "success" });
       localStorage.removeItem("cartItems");
       window.location.href = "/";
     }
   } catch (err) {
     console.error("❌ Order Submit Error:", err.response?.data || err.message);
-    alert("Failed to place order.");
+       enqueueSnackbar("Failed to place order", { variant: "error" });
   }
 };
 

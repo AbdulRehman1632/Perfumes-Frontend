@@ -79,7 +79,9 @@ const AddToCartDrawer = ({ open, onClose }) => {
                   <Typography variant="body2">Price: Rs {item.price}</Typography>
                 </Box>
                 <IconButton onClick={() => dispatch(removeFromCart(item._id))}>
-                  <DeleteIcon />
+                  <DeleteIcon  sx={{
+                    color:"red"
+                  }}/>
                 </IconButton>
               </Box>
             ))}
@@ -108,7 +110,10 @@ const AddToCartDrawer = ({ open, onClose }) => {
                 <Typography fontWeight={600} color='green'>Rs {total}</Typography>
               </Box>
               <Box  sx={{display:"flex" ,justifyContent:"center" ,border:"2px solid black",marginTop:"30px",borderRadius:"5px"}}>
-                <Button color='black'  onClick={() => navigate("/checkout")}>Go To Checkout</Button>
+                <Button sx={{
+                  border:"1px solid gray",
+                  padding:"10px"
+                }} color='black'  onClick={() => navigate("/checkout")}>Go To Checkout</Button>
               </Box>
             </Box>
           </>

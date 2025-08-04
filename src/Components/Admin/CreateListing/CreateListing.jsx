@@ -10,6 +10,7 @@ import {
 import { useSnackbar } from 'notistack'; // ✅ import snackbar
 import { PostReq } from '../../../api/axios';
 
+
 const CreateListing = () => {
   const { enqueueSnackbar } = useSnackbar(); // ✅ use hook
 
@@ -72,6 +73,7 @@ const CreateListing = () => {
     try {
   const res = await PostReq('/Listing/add', payload, {
     headers: { 'Content-Type': 'multipart/form-data' },
+     timeout: 15000,
   });
 
   console.log('Success:', res.data);

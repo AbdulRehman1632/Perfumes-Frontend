@@ -117,7 +117,8 @@ const ManageOrder = () => {
 
   const rows = filteredOrders.map((order) => ({
    
-    id: order.products?.map((p) => p.productId?._id).join(", "),
+    // id: order.products?.map((p) => p.productId?._id).join(", "),
+    id: order._id,
     name: order.name,
     email: order.email,
     phone: order.phone,

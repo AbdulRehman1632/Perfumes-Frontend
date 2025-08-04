@@ -279,7 +279,7 @@ const CustomNav = () => {
   ))
 ) : (
   !loading && (
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body2" color="white">
       No orders found.
     </Typography>
   )
