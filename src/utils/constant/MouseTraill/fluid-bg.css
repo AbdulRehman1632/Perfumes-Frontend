@@ -1,0 +1,9 @@
+.fluid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* ❗ Important: Send to back */
+  pointer-events: none; /* ❗ Mouse click passthrough */
+}
