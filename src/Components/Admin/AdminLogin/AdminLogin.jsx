@@ -29,7 +29,7 @@ const AdminLogin = () => {
     //   e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:2004/api/admin/login", {
+      const res = await axios.post("https://perfumes-backend.vercel.app/api/admin/login", {
   email: formData.email,
   password: formData.password
   
