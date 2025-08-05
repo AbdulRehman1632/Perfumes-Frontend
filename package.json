@@ -16,6 +16,7 @@
     "@mui/material": "^7.2.0",
     "@reduxjs/toolkit": "^2.8.2",
     "@toolpad/core": "^0.16.0",
+    "@vercel/speed-insights": "^1.2.0",
     "aos": "^2.3.4",
     "axios": "^1.10.0",
     "cors": "^2.8.5",
