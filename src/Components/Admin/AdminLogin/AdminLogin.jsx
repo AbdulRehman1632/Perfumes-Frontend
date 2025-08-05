@@ -14,6 +14,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { useSnackbar } from 'notistack';
+import { PostReq } from '../../../api/axios';
 
 const AdminLogin = () => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const AdminLogin = () => {
     //   e.preventDefault();
 
     try {
-      const res = await axios.post("https://perfumes-backend.vercel.app/api/admin/login", {
+      const res = await PostReq("/api/admin/login", {
   email: formData.email,
   password: formData.password
   
