@@ -149,11 +149,16 @@ const CustomNav = () => {
         anchor="left"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
+        
       >
         <Box
           width={250}
           role="presentation"
           onClick={() => setDrawerOpen(false)}
+          sx={{
+          backgroundColor:"black",
+          height:"100vh"
+        }}
         >
           <List>
             {navLinks.map((link) => (
@@ -162,6 +167,9 @@ const CustomNav = () => {
                 key={link.name}
                 component={NavLink}
                 to={link.path}
+                sx={{
+                  color:"white",
+                }}
               >
                 <ListItemText primary={link.name} />
               </ListItem>
