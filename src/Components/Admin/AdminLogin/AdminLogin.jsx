@@ -11,10 +11,11 @@ import {
   Avatar,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { useSnackbar } from 'notistack';
 import { PostReq } from '../../../api/axios';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 
 const AdminLogin = () => {
     const navigate = useNavigate();
@@ -59,11 +60,7 @@ const AdminLogin = () => {
       <Card sx={{ maxWidth: 400, width: '100%', p: 3 }}>
         <CardContent>
           <Box display="flex" justifyContent="center" mb={2}>
-            <Avatar
-              src="https://cdn-icons-png.flaticon.com/512/295/295128.png"
-              alt="Admin Logo"
-              sx={{ width: 60, height: 60 }}
-            />
+           <AccountCircleIcon sx={{fontSize:"4em"}}/>
           </Box>
           <Typography variant="h5" textAlign="center" gutterBottom>
             Admin Login
