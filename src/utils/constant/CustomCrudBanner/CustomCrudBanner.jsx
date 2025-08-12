@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import { GetReq } from '../../../api/axios';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const CustomCrudBanner = () => {
   const [offers, setOffers] = useState([]);
@@ -21,20 +18,9 @@ const CustomCrudBanner = () => {
     fetchOffers();
   }, []);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    pauseOnHover: true,
-    arrows: false, // mobile-friendly
-  };
-
   return (
-    <>
+    <> 
+
       <Typography
         color="white"
         variant="h4"
@@ -46,100 +32,89 @@ const CustomCrudBanner = () => {
         Special Offers
       </Typography>
 
-      <Slider {...settings}>
-        {offers.map((item, index) => {
-          const isImageLeft = index % 2 === 0;
-          const {
-            OfferImage,
-            OfferPercentage,
-            OfferProductDescription,
-            OfferProductName,
-            OfferProductTagline,
-            BackgroundColor
-          } = item;
+      {offers.map((item, index) => {
+        const isImageLeft = index % 2 === 0;
+        const {
+          OfferImage,
+          OfferPercentage,
+          OfferProductDescription,
+          OfferProductName,
+          OfferProductTagline,
+          BackgroundColor
+        } = item;
 
-          return (
-            <Box
-              key={index}
-              sx={{
-                background: `
-                  radial-gradient(circle at 0% 10%, rgba(0, 0, 0, 1), transparent 100%),
-                  radial-gradient(circle at 80% 60%, rgba(${BackgroundColor}), transparent 70%)
-                `,
-                backgroundColor: '#020f13ff',
-                p: { xs: 2, md: 6 },
-                display: 'flex',
-                alignItems: 'center',
-                minHeight: { xs: 350, md: 500 }
-              }}
-            >
-              <Grid
-                container
-                spacing={4}
-                direction={isImageLeft ? 'row' : 'row-reverse'}
-                alignItems="center"
-                justifyContent="center"
-              >
-                {/* Image */}
-                <Grid item xs={12} md={6} sx={{ textAlign: 'center' }}>
-                  <img
-                    src={OfferImage}
-                    alt={OfferProductName}
-                    style={{
-                      width: '100%',
-                      maxWidth: '400px',
-                      height: 'auto',
-                      borderRadius: '12px',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </Grid>
-
-                {/* Text */}
-                <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-                  <Typography
-                    color="white"
-                    variant="h4"
-                    fontWeight="bold"
-                    gutterBottom
-                  >
-                    {`Limited Time Offer: ${OfferPercentage}% OFF on `}
-                    <span style={{ color: `rgba(${BackgroundColor})` }}>
-                      {OfferProductName}
-                    </span>
-                  </Typography>
-
-                  <Typography
-                    color="white"
-                    variant="h4"
-                    fontWeight="medium"
-                    gutterBottom
-                  >
-                    {OfferProductName}
-                  </Typography>
-
-                  <Typography
-                    variant="h5"
-                    fontWeight="medium"
-                    gutterBottom
-                    sx={{ color: `rgba(${BackgroundColor})` }}
-                  >
-                    {OfferProductTagline}
-                  </Typography>
-
-                  <Typography
-                    color="white"
-                    variant="body1"                 
-                    sx={{ mt: 2 ,fontSize:"1.1em",width: { xs: "100%", md: "70%" } }}
-                  >
-                    {OfferProductDescription}
-                  </Typography>
-                </Grid>
+        return (
+          <Box
+            key={index}
+            sx={{
+              position: 'relative',
+              overflow: 'hidden',
+              background: `
+                radial-gradient(circle at 0% 10%, rgba(0, 0, 0, 1), transparent 100%),
+                radial-gradient(circle at 80% 60%, rgba(${BackgroundColor}), transparent 70%)
+              `,
+              backgroundColor: '#020f13ff',
+              p: { xs: 2, md: 4 },
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mt: 4
+            }}
+          >
+            <Grid sx={{ marginLeft: { xs: '0px', md: '220px' } }} container spacing={2} direction={isImageLeft ? 'row' : 'row-reverse'} alignItems="center">
+              {/* Image */}
+              <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+                <img
+                  src={OfferImage}
+                  alt="Banner Visual"
+                  style={{ width: '80%', maxWidth: '400px', borderRadius: '12px' }}
+                />
               </Grid>
-            </Box>
-          );
-        })}
-      </Slider>
+
+              {/* Text */}
+              <Grid item xs={12} md={6} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+                <Typography
+                  color="white"
+                  variant="h4"
+                  fontWeight="bold"
+                  gutterBottom
+                  sx={{ width: { xs: '100%', md: '70%' }, mx: { xs: 'auto', md: 0 } }}
+                >
+                  {`Limited Time Offer: ${OfferPercentage}% OFF on `}
+                  <span style={{ color: `rgba(${BackgroundColor})` }}>{`${OfferProductName} Perfume`}</span>
+                </Typography>
+
+                <Typography
+                  color="white"
+                  variant="h5"
+                  fontWeight="medium"
+                  gutterBottom
+                  sx={{ mt: 4, width: { xs: '100%', md: '70%' }, mx: { xs: 'auto', md: 0 } }}
+                >
+                  {OfferProductName}
+                </Typography>
+
+                <Typography
+                  variant="h5"
+                  fontWeight="medium"
+                  gutterBottom
+                  sx={{ mt: -0, color: `rgba(${BackgroundColor})`, width: { xs: '100%', md: '70%' }, mx: { xs: 'auto', md: 0 } }}
+                >
+                  {OfferProductTagline}
+                </Typography>
+
+                <Typography
+                  color="white"
+                  variant="body1"
+                  sx={{ mt: 4, width: { xs: '100%', md: '70%' }, mx: { xs: 'auto', md: 0 } }}
+                >
+                  {OfferProductDescription}
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        );
+      })}
     </>
   );
 };
