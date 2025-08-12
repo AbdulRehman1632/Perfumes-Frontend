@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: #000;
+    font-family: satoshi;
+}
+
+
+
+
+:root{
+    --bg-color:#000;
+    --font-color:#fff;
+    --button-color: #AB572D;
+    --theme-color: #AB572D;
+}
+
+@font-face {
+    font-family: satoshi;
+    src: url(../public//assets/fonts/Satoshi-Medium.otf);
+}
