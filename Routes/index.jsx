@@ -1,6 +1,7 @@
 import AdminLogin from "../src/Components/Admin/AdminLogin/AdminLogin";
 import CreateListing from "../src/Components/Admin/CreateListing/CreateListing";
-import ManageOrder from "../src/Components/Admin/ManageOrders/ManageORder";
+// import ManageOrder from "../src/Components/Admin/ManageOrders/ManageORder";
+import ManageOrder from "../src/Components/Admin/ManageOrders/ManageOrder"
 import PostOffer from "../src/Components/Admin/PostOffer/PostOffer";
 import ShowListing from "../src/Components/Admin/ShowListing/ShowListing";
 import Checkout from "../src/Components/Checkout/Checkout";
