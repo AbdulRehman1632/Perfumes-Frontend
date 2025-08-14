@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Loader from '../Loader/Loader';
 
-
 const CustomCrudBanner = () => {
   const [offers, setOffers] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -96,7 +95,7 @@ const CustomCrudBanner = () => {
                   minHeight: 400
                 }}
               >
-                <Grid container spacing={{xs:2,md:12}} direction={isImageLeft ? 'row' : 'row-reverse'} alignItems="center">
+                <Grid container spacing={{xs:2,md:6}} direction={isImageLeft ? 'row' : 'row-reverse'} alignItems="center">
                   {/* Image */}
                    <Grid item xs={12} md={6} display="flex" justifyContent="center">
     <Box
@@ -104,7 +103,7 @@ const CustomCrudBanner = () => {
       src={OfferImage}
       alt="Banner Visual"
       sx={{
-        width: { xs: '80%', sm: '80%', md: '100%' },
+        width: { xs: '80%', sm: '80%', md: '90%' },
         height: { xs: 'auto', md: '300px' },
         borderRadius: '12px',
         objectFit: 'cover',

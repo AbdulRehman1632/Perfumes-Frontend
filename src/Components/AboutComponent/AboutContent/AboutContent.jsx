@@ -7,11 +7,11 @@ const AboutContent = () => {
     <Box sx={{ py: 6, px: 2, textAlign: 'center',backgroundSize: 'cover',
         backgroundPosition: 'center',
         alignItems: 'center',
-        textAlign: 'center',
-        px: 2,
+        // textAlign: 'center',
+        // px: 2,
         color: '#fff',
         position: 'relative',
-        background: '#a6a1a1',
+        // background: '#a6a1a1',
 background: "radial-gradient(circle,rgba(80, 80, 80, 0.36) 0%, rgba(0, 0, 0, 0.72) 44%, rgba(0, 0, 0, 1) 60%)", }}>
       {/* Main Heading */}
       <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 4,color:"var(--theme-color)" }}>

@@ -18,6 +18,10 @@ body{
     --font-color:#fff;
     --button-color: #AB572D;
     --theme-color: #AB572D;
+     --bg-color:
+  radial-gradient(circle at top left, rgba(171, 87, 45, 0.3) 0%, transparent 40%),
+  radial-gradient(circle at bottom right, rgba(171, 87, 45, 0.3) 0%, transparent 40%),
+  black
 }
 
 @font-face {

@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../utils/constant/Redux/Slice/productSlice';
 import { useNavigate } from 'react-router';
 import ParticlesBackground from '../../utils/constant/ParticlesBackground/ParticlesBackground';
+import Loader from '../../utils/constant/Loader/Loader';
 
 const ProductComponents = () => {
   const dispatch = useDispatch();
@@ -67,7 +68,16 @@ const ProductComponents = () => {
     page * itemsPerPage
   );
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return  <Box
+        sx={{
+          minHeight: 400,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Loader />
+      </Box>;
   if (error) return <p>Error: {error}</p>;
 
   return (

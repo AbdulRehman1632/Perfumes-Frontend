@@ -20,7 +20,7 @@ const whiteTextFieldStyle = {
   },
 };
 
-const MAX_EXPERIENCE_LENGTH = 230;
+const MAX_EXPERIENCE_LENGTH = 70;
 
 
 export default function ReviewModal({ open, onClose, onSuccess, productId }) {
@@ -185,50 +185,6 @@ export default function ReviewModal({ open, onClose, onSuccess, productId }) {
             sx={{ color: "#a4511b" }}
           />
         </Stack>
-
-        {/* <Button
-          variant="outlined"
-          component="label"
-          fullWidth
-          sx={{
-            mb: 1,
-            color: 'white',
-            borderColor: 'white',
-            '&:hover': {
-              borderColor: 'white',
-              backgroundColor: 'rgba(255,255,255,0.1)',
-            },
-          }}
-        >
-          Upload Image
-          <input
-            hidden
-            accept="image/*"
-            type="file"
-            onChange={(e) => setImage(e.target.files[0])}
-          />
-        </Button>
-
-        {image && (
-          <>
-            <Box
-              component="img"
-              src={URL.createObjectURL(image)}
-              alt="Preview"
-              sx={{
-                width: "30%",
-                height: 80,
-                objectFit: "cover",
-                borderRadius: 2,
-                mb: 1,
-                border: "1px solid white"
-              }}
-            />
-            <Typography variant="body2" sx={{ color: "white", mb: 2 }}>
-              {image.name}
-            </Typography>
-          </>
-        )} */}
 
         <Button
           variant="contained"

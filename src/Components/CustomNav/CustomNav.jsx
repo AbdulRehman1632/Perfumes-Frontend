@@ -82,6 +82,7 @@ const CustomNav = () => {
     { name: "Products", path: "/products" },
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   return (
@@ -121,9 +122,6 @@ const CustomNav = () => {
 
           {/* Right-side Icons */}
           <Box sx={{ display: "flex", gap: 2 }}>
-            <IconButton color="inherit">
-              <PersonIcon />
-            </IconButton>
             <IconButton color="inherit" onClick={handleOpen}>
               <LocalShippingIcon />
             </IconButton>
@@ -148,25 +146,29 @@ const CustomNav = () => {
       />
 
       {/* Mobile Drawer */}
-      <Drawer
+      <Drawer 
         anchor="left"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
-        <Box
+        <Box sx={{
+        backgroundColor:"black",
+        height:"100vh",
+
+      }}
           width={250}
           role="presentation"
           onClick={() => setDrawerOpen(false)}
         >
           <List>
             {navLinks.map((link) => (
-              <ListItem
+              <ListItem 
                 button
                 key={link.name}
                 component={NavLink}
                 to={link.path}
               >
-                <ListItemText primary={link.name} />
+                <ListItemText sx={{color:"white"}} primary={link.name} />
               </ListItem>
             ))}
           </List>
@@ -282,7 +284,7 @@ const CustomNav = () => {
   ))
 ) : (
   !loading && (
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body2" color="white">
       No orders found.
     </Typography>
   )

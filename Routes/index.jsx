@@ -9,6 +9,7 @@ import ProductDetailPage from "../src/Components/HomeComponents/ProductDetailPag
 import DashboardLayoutNavigationLinks from "../src/layout/DashboardLayoutNaviagtionLinks/DashboardLayoutNaviagtionLinks";
 import AboutUs from "../src/Pages/AboutUS/AboutUs";
 import AdminDashboard from "../src/Pages/AdminDashboard/AdminDashboard";
+import ContactUs from "../src/Pages/ContactUs/ContactUs";
 import Home from "../src/Pages/Home/Home";
 import Products from "../src/Pages/Products/Products";
 import Services from "../src/Pages/Services/Services";
@@ -47,6 +48,11 @@ export const routes = [
      {
         element:<Services/>,
         path:"/services"
+
+    },
+    {
+        element:<ContactUs/>,
+        path:"/contact"
 
     },
     {

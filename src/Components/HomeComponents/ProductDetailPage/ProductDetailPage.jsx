@@ -16,6 +16,7 @@ import Rating from '@mui/material/Rating';
 import { GetReq } from '../../../api/axios'; // your API helper
 import ReviewModal from '../../../utils/constant/ReviewModal/ReviewModal';
 import { addToCart } from '../../../utils/constant/Redux/Slice/cartslice';
+import Loader from '../../../utils/constant/Loader/Loader';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -106,17 +107,23 @@ useEffect(() => {
   // 🌀 Loading UI
   if (loading || !product) {
     return (
-      <Box sx={{ color: 'white', p: 4, textAlign: 'center' }}>
-        <CircularProgress sx={{ color: 'white' }} />
-        <Typography mt={2}>Loading product...</Typography>
+      <Box
+        sx={{
+          minHeight: 400,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Loader />
       </Box>
     );
   }
 
   // ✅ Render Product Page
   return (
-    <Box sx={{ backgroundColor: '#121212', color: 'white', minHeight: '100vh', py: 6, px: { xs: 2, md: 30 } }}>
-      <Grid container spacing={{ xs: 2, md: 30 }} alignItems="start">
+    <Box sx={{ backgroundColor: '#121212', color: 'white', minHeight: '100vh', py: 5, px: { xs: 2, md: 20 } }}>
+      <Grid container spacing={{ xs: 2, md: 10 }} alignItems="start">
         {/* Image Section */}
         <Grid item xs={12} md={6}>
           <Box sx={{
@@ -246,84 +253,7 @@ useEffect(() => {
   {reviews.length === 0 ? (
     <Typography>No reviews yet.</Typography>
   ) : (
-  //    <Box sx={{ width: '100%', textAlign: 'center' }}>
-  //     <Grid
-  //       container
-  //       spacing={4}
-  //       justifyContent="center"
-  //       alignItems="center"
-  //       sx={{ mt: 2 }}
-  //     >
-  //       {paginatedReviews.map((review, idx) => (
-  //         <Grid height="220px" width="30%" item key={idx} xs={12} sm={6} md={4} >
-  //           <Box
-  //             sx={{
-  //               display: 'flex',
-  //               alignItems: 'flex-start',
-  //               gap: 2,
-  //               backgroundColor: '#1e1e1e',
-  //               p: 2,
-  //               borderRadius: 2,
-  //               height: '100%',
-  //             }}
-  //           >
-  //             {/* Image (optional) */}
-  //             {/* <Box
-  //               component="img"
-  //               src={review.ReviewImage}
-  //               alt={review.ReviewName}
-  //               sx={{
-  //                 width: 60,
-  //                 height: 60,
-  //                 borderRadius: '50%',
-  //                 objectFit: 'cover',
-  //               }}
-  //             /> */}
 
-  //             <Box>
-  //               <Box display="flex" alignItems="center" gap={1}>
-  //                 <Typography fontWeight="bold">{review.ReviewName}</Typography>
-  //               </Box>
-  //               <Rating
-  //                 value={review.ReviewRating}
-  //                 readOnly
-  //                 size="small"
-  //                 sx={{ color: '#a4511b' }}
-  //               />
-  //               <Typography
-  //                 variant="subtitle1"
-  //                 sx={{ fontWeight: 500, color: 'var(--theme-color)' }}
-  //               >
-  //                 {review.ReviewTitle}
-  //               </Typography>
-  //               <Typography variant="body2" sx={{ color: '#ccc' }}>
-  //                 {review.ReviewExperience}
-  //               </Typography>
-  //             </Box>
-  //           </Box>
-  //         </Grid>
-  //       ))}
-  //     </Grid>
-
-  //     {/* Pagination Component */}
-  //     <Box mt={4} display="flex" justifyContent="center">
-  //       <Pagination
-  //         count={pageCount}
-  //         page={page}
-  //         onChange={handlePageChange}
-  //         sx={{
-  //   "& .MuiPaginationItem-root": {
-  //     color: "var(--theme-color)",
-  //     borderColor: "var(--theme-color)",
-  //   },
-  //   "& .Mui-selected": {
-  //     backgroundColor: "var(--theme-color)",
-  //     color: "#fff",
-  //   }
-  // }}
-  //       />
-  //     </Box>
-  //   </Box>
 
 
   <Box sx={{ width: '100%', textAlign: 'center' }}>
@@ -336,24 +266,27 @@ useEffect(() => {
   >
     {paginatedReviews.map((review, idx) => (
       <Grid sx={{ 
+        textAlign:"center",
     width: {
-      height:"220px",
+      height:"160px",
       xs: '100%',     // mobile
       sm: '100%',   // tablet
-      md: '30%'     // desktop
+      md: '25%'     // desktop
     }
   }} item key={idx} xs={12} sm={6} md={4}>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: 2,
-            backgroundColor: '#1e1e1e',
-            p: 2,
-            borderRadius: 2,
-            height: '100%',
-          }}
-        >
+       <Box
+  sx={{
+    display: 'flex',
+    flexDirection: 'column', // stack vertically
+    alignItems: 'center',    // center horizontally
+    textAlign: 'center',     // center text
+    gap: 0.5,
+    backgroundColor: '#1e1e1e',
+    p: 2,
+    borderRadius: 2,
+    height: '100%',
+  }}
+>
           <Box>
             <Box display="flex" alignItems="center" gap={1}>
               <Typography fontWeight="bold">{review.ReviewName}</Typography>

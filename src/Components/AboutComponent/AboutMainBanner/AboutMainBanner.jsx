@@ -54,7 +54,7 @@ const AboutMainBanner = () => {
         px: 2,
         color: '#fff',
         position: 'relative',
-        background: '#a6a1a1',
+        // background: '#a6a1a1',
 background: "radial-gradient(circle,rgba(80, 80, 80, 1) 0%, rgba(0, 0, 0, 0.72) 44%, rgba(0, 0, 0, 1) 60%)",
       }}
     >
