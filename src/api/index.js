@@ -1,7 +1,10 @@
 import axios from "axios"
 
 const apiClient = axios.create({
-    baseURL: ["https://perfumes-backend.vercel.app/", "http://localhost:2004"],
+    baseURL:     import.meta.env.MODE === "development"
+      ? "http://localhost:2004"
+      : "https://perfumes-backend.vercel.app/",
+
     timeout : 15000,
     headers:{
         "Content-Type":"application/json"
