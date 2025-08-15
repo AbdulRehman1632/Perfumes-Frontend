@@ -70,7 +70,7 @@ const CreateListing = () => {
     payload.append('images', images.otherImage);
 
     try {
-  const res = await PostReq('/Listing/add', payload, {
+  const res = await PostReq('/Listing/add', data, {
     headers: { 'Content-Type': 'multipart/form-data' },
   });
 
